@@ -22,4 +22,4 @@ export type Night = {
 // Reads runs/<night>.jsonl. Returns null when the file does not exist (route -> 404).
 // An empty file returns { rows: [], badLines: 0 }.
 export type ReadNight = (runsDir: string, night: string) => Night | null;
-export declare function readNight(runsDir: string, night: string): Night | null;
+// Implemented in src/digest/reader.ts as `export const readNight: ReadNight`.
