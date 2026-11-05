@@ -1,8 +1,6 @@
 import type { Night } from '../digest/types.js';
 
 const dash = '—';
-// A job whose last run logged no error has nothing missing: say so instead of showing a dash.
-const noError = 'none';
 
 export function Digest({ data }: { data: Night }) {
   return (
@@ -35,7 +33,7 @@ export function Digest({ data }: { data: Night }) {
                   <td>{r.runs}</td>
                   <td>{r.retries}</td>
                   <td>{r.lastStatus}</td>
-                  <td>{r.lastError ?? noError}</td>
+                  <td>{r.lastError ?? dash}</td>
                   <td>{r.firstAt}</td>
                   <td>{r.lastAt}</td>
                 </tr>
