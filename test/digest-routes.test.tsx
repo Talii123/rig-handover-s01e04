@@ -103,8 +103,7 @@ describe('GET /digest/:night', () => {
     const jobs = ['alpha/first', 'mid/failed', 'mid/retried', 'noowner/job', 'zeta/last'];
     expect(jobsInPage(html, jobs)).toEqual(jobs);
     expect(dataRows(html).find((tr) => tr.includes('noowner/job'))).toContain('—');
-    // alpha/first has an owner; its empty last-error cell legitimately shows —.
-    expect(dataRows(html).find((tr) => tr.includes('alpha/first'))).toContain('<td>ana</td>');
+    expect(dataRows(html).find((tr) => tr.includes('alpha/first'))).not.toContain('—');
   });
 
   it('marks rows with retries >= 3 or lastStatus fail, and only those', async () => {
